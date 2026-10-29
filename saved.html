@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="theme-color" content="#142B24">
+
+    <title>Saved Opportunities | SkillBridge</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        .saved-page {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 30px 20px 60px;
+        }
+
+        .saved-header {
+            margin-bottom: 30px;
+        }
+
+        .saved-header h1 {
+            margin-bottom: 10px;
+        }
+
+        .saved-header p {
+            opacity: 0.8;
+            line-height: 1.6;
+        }
+
+        .saved-count {
+            display: inline-block;
+            margin-top: 12px;
+            padding: 7px 12px;
+            border-radius: 20px;
+            background: #e7f2eb;
+            color: #214d38;
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        .saved-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
+        }
+
+        .saved-card {
+            padding: 22px;
+            border: 1px solid #e5e7e5;
+            border-radius: 16px;
+            background: #ffffff;
+            box-shadow: 0 5px 18px rgba(0, 0, 0, 0.04);
+        }
+
+        .saved-card h2 {
+            margin: 12px 0 8px;
+            font-size: 20px;
+        }
+
+        .saved-card p {
+            line-height: 1.6;
+        }
+
+        .saved-category {
+            display: inline-block;
+            padding: 6px 10px;
+            border-radius: 20px;
+            background: #edf4ef;
+            color: #28543c;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .saved-meta {
+            margin: 14px 0;
+            font-size: 14px;
+            color: #626962;
+        }
+
+        .saved-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 18px;
+        }
+
+        .saved-actions a,
+        .saved-actions button {
+            display: inline-block;
+            padding: 10px 14px;
+            border-radius: 8px;
+            font: inherit;
+            font-size: 14px;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .view-btn {
+            border: none;
+            background: #214d38;
+            color: #ffffff;
+        }
+
+        .remove-btn {
+            border: 1px solid #d9dfda;
+            background: #ffffff;
+            color: #8a302d;
+        }
+
+        .empty-state {
+            padding: 35px 20px;
+            text-align: center;
+            border: 1px dashed #cbd5ce;
+            border-radius: 16px;
+            background: #fafcf9;
+        }
+
+        .empty-state h2 {
+            margin-bottom: 10px;
+        }
+
+        .empty-state p {
+            line-height: 1.7;
+        }
+
+        .browse-btn {
+            display: inline-block;
+            margin-top: 12px;
+            padding: 12px 18px;
+            border-radius: 8px;
+            background: #214d38;
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 24px;
+            color: #214d38;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        @media (max-width: 480px) {
+            .saved-page {
+                padding: 24px 15px 45px;
+            }
+
+            .saved-card {
+                padding: 18px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <main class="saved-page">
+
+        <a href="index.html" class="back-link">
+            ← Back to SkillBridge
+        </a>
+
+        <header class="saved-header">
+            <h1>Saved Opportunities</h1>
+
+            <p>
+                Keep track of opportunities you're interested in
+                and return to them whenever you're ready.
+            </p>
+
+            <span class="saved-count" id="savedCount">
+                0 saved opportunities
+            </span>
+        </header>
+
+        <section id="savedContainer" class="saved-list">
+            <!-- Saved opportunities will appear here -->
+        </section>
+
+    </main>
+
+    <script>
+        const savedContainer = document.getElementById("savedContainer");
+        const savedCount = document.getElementById("savedCount");
+
+        function getSavedOpportunities() {
+            try {
+                const ids = JSON.parse(
+                    localStorage.getItem("skillbridge-saved")
+                ) || [];
+
+                const opportunities = JSON.parse(
+                    localStorage.getItem("skillbridgeOpportunities")
+                ) || [];
+
+                if (!Array.isArray(ids) || !Array.isArray(opportunities)) {
+                    return [];
+                }
+
+                return ids
+                    .map(id => opportunities.find(
+                        item => Number(item.id) === Number(id)
+                    ))
+                    .filter(Boolean);
+
+            } catch (error) {
+                console.error("Could not load saved opportunities:", error);
+                return [];
+            }
+        }
+
+        function renderSavedOpportunities() {
+            const opportunities = getSavedOpportunities();
+
+            savedCount.textContent =
+                opportunities.length === 1
+                    ? "1 saved opportunity"
+                    : opportunities.length + " saved opportunities";
+
+            if (opportunities.length === 0) {
+                savedContainer.className = "";
+                savedContainer.innerHTML = `
+                    <div class="empty-state">
+                        <h2>No saved opportunities yet</h2>
+
+                        <p>
+                            When you find an opportunity you like,
+                            save it and it will appear here.
+                        </p>
+
+                        <a href="index.html" class="browse-btn">
+                            Explore Opportunities
+                        </a>
+                    </div>
+                `;
+                return;
+            }
+
+            savedContainer.className = "saved-list";
+
+            savedContainer.innerHTML = opportunities.map(opportunity => `
+                <article class="saved-card">
+
+                    <span class="saved-category">
+                        ${escapeHTML(opportunity.category || "Opportunity")}
+                    </span>
+
+                    <h2>${escapeHTML(opportunity.title || "Untitled Opportunity")}</h2>
+
+                    <p>
+                        ${escapeHTML(
+                            opportunity.description ||
+                            "Explore this opportunity to learn more."
+                        )}
+                    </p>
+
+                    <div class="saved-meta">
+                        <p><strong>Type:</strong>
+                            ${escapeHTML(opportunity.type || "Not specified")}
+                        </p>
+
+                        <p><strong>Location:</strong>
+                            ${escapeHTML(opportunity.location || "Not specified")}
+                        </p>
+                    </div>
+
+                    <div class="saved-actions">
+
+                        <a
+                            class="view-btn"
+                            href="opportunity.html?id=${encodeURIComponent(opportunity.id)}"
+                        >
+                            View Details
+                        </a>
+
+                        <button
+                            class="remove-btn"
+                            type="button"
+                            onclick="removeSavedOpportunity(${Number(opportunity.id)})"
+                        >
+                            Remove
+                        </button>
+
+                    </div>
+
+                </article>
+            `).join("");
+        }
+
+        function removeSavedOpportunity(id) {
+            try {
+                const savedIds = JSON.parse(
+                    localStorage.getItem("skillbridge-saved")
+                ) || [];
+
+                const updatedIds = savedIds.filter(
+                    savedId => Number(savedId) !== Number(id)
+                );
+
+                localStorage.setItem(
+                    "skillbridge-saved",
+                    JSON.stringify(updatedIds)
+                );
+
+                renderSavedOpportunities();
+
+            } catch (error) {
+                console.error("Could not remove saved opportunity:", error);
+                alert("Something went wrong. Please try again.");
+            }
+        }
+
+        function escapeHTML(value) {
+            return String(value).replace(/[&<>"']/g, character => ({
+                "&": "&amp;",
+                "<": "&lt;",
+                ">": "&gt;",
+                '"': "&quot;",
+                "'": "&#39;"
+            })[character]);
+        }
+
+        renderSavedOpportunities();
+    </script>
+
+</body>
+</html>

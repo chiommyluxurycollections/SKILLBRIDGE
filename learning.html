@@ -1,0 +1,1086 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="Discover learning resources to develop digital, creative, technical and professional skills with SKILLBRIDGE.">
+
+    <meta name="theme-color" content="#142D24">
+
+    <title>Learning Resources | SKILLBRIDGE</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        .learning-hero {
+            padding: 75px 0 65px;
+            background: #f3f7f1;
+        }
+
+        .learning-hero-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            align-items: center;
+            gap: 45px;
+        }
+
+        .learning-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+            padding: 9px 13px;
+            border-radius: 30px;
+            background: #e2eee4;
+            color: #28563c;
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: 1px;
+        }
+
+        .learning-hero h1 {
+            margin: 22px 0;
+            font-family: "Manrope", sans-serif;
+            font-size: clamp(36px, 5vw, 57px);
+            line-height: 1.13;
+            letter-spacing: -2px;
+            color: #142d24;
+        }
+
+        .learning-hero h1 span {
+            color: #43815c;
+        }
+
+        .learning-hero-description {
+            max-width: 590px;
+            color: #626c65;
+            font-size: 16px;
+            line-height: 1.9;
+        }
+
+        .learning-hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 13px;
+            margin-top: 27px;
+        }
+
+        .learning-hero-art {
+            position: relative;
+            padding: 28px;
+            border-radius: 25px;
+            background: #173a2b;
+            color: white;
+            overflow: hidden;
+        }
+
+        .learning-hero-art::before {
+            content: "";
+            position: absolute;
+            width: 220px;
+            height: 220px;
+            right: -75px;
+            top: -75px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.07);
+        }
+
+        .learning-art-label {
+            position: relative;
+            color: #c4dfc9;
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 1.5px;
+        }
+
+        .learning-art-title {
+            position: relative;
+            margin: 13px 0 25px;
+            font-size: 25px;
+            line-height: 1.4;
+        }
+
+        .learning-art-item {
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 13px;
+            margin-top: 13px;
+            padding: 14px;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 13px;
+            background: rgba(255, 255, 255, 0.06);
+        }
+
+        .learning-art-icon {
+            display: grid;
+            place-items: center;
+            flex-shrink: 0;
+            width: 43px;
+            height: 43px;
+            border-radius: 12px;
+            background: #dcecdf;
+            color: #214c34;
+            font-size: 20px;
+        }
+
+        .learning-art-item h3 {
+            margin: 0 0 4px;
+            font-size: 14px;
+        }
+
+        .learning-art-item p {
+            margin: 0;
+            color: #d0ddd4;
+            font-size: 12px;
+            line-height: 1.6;
+        }
+
+        .learning-section {
+            padding: 65px 0;
+        }
+
+        .learning-section-heading {
+            margin-bottom: 30px;
+        }
+
+        .learning-section-heading .section-label {
+            display: inline-block;
+            margin-bottom: 12px;
+            color: #43815c;
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: 1.4px;
+        }
+
+        .learning-section-heading h2 {
+            margin: 0 0 12px;
+            color: #142d24;
+            font-family: "Manrope", sans-serif;
+            font-size: clamp(26px, 4vw, 36px);
+            line-height: 1.3;
+        }
+
+        .learning-section-heading p {
+            max-width: 650px;
+            color: #68716a;
+            line-height: 1.8;
+        }
+
+        .learning-search {
+            display: flex;
+            gap: 12px;
+            margin: 25px 0 30px;
+        }
+
+        .learning-search input {
+            flex: 1;
+            min-width: 0;
+            padding: 15px 17px;
+            border: 1px solid #dce4dc;
+            border-radius: 10px;
+            background: #ffffff;
+            color: #142d24;
+            font: inherit;
+            outline: none;
+        }
+
+        .learning-search input:focus {
+            border-color: #43815c;
+            box-shadow: 0 0 0 3px rgba(67, 129, 92, 0.12);
+        }
+
+        .learning-search button {
+            padding: 14px 19px;
+            border: none;
+            border-radius: 10px;
+            background: #214d38;
+            color: #ffffff;
+            font: inherit;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        .learning-category-filters {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 28px;
+        }
+
+        .learning-filter {
+            padding: 9px 14px;
+            border: 1px solid #dce4dc;
+            border-radius: 30px;
+            background: #ffffff;
+            color: #445249;
+            font: inherit;
+            font-size: 13px;
+            cursor: pointer;
+        }
+
+        .learning-filter.active {
+            border-color: #214d38;
+            background: #214d38;
+            color: #ffffff;
+        }
+
+        .learning-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 20px;
+        }
+
+        .learning-card {
+            display: flex;
+            flex-direction: column;
+            min-width: 0;
+            padding: 23px;
+            border: 1px solid #e5eae5;
+            border-radius: 17px;
+            background: #ffffff;
+            box-shadow: 0 5px 20px rgba(20, 45, 36, 0.035);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .learning-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 27px rgba(20, 45, 36, 0.08);
+        }
+
+        .learning-card-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            margin-bottom: 18px;
+        }
+
+        .learning-card-icon {
+            display: grid;
+            place-items: center;
+            width: 49px;
+            height: 49px;
+            border-radius: 14px;
+            background: #e8f1e9;
+            color: #28563c;
+            font-size: 23px;
+        }
+
+        .learning-card-level {
+            padding: 6px 9px;
+            border-radius: 20px;
+            background: #f1f4f1;
+            color: #566259;
+            font-size: 10px;
+            font-weight: 800;
+        }
+
+        .learning-card h3 {
+            margin: 0 0 10px;
+            color: #183528;
+            font-size: 19px;
+            line-height: 1.45;
+        }
+
+        .learning-card p {
+            margin: 0 0 18px;
+            color: #68716a;
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        .learning-card-category {
+            margin-bottom: 12px;
+            color: #43815c;
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 0.7px;
+            text-transform: uppercase;
+        }
+
+        .learning-card-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            margin-top: auto;
+            padding-top: 17px;
+            border-top: 1px solid #edf0ed;
+            color: #28563c;
+            font-size: 14px;
+            font-weight: 800;
+            text-decoration: none;
+        }
+
+        .learning-card-link:hover {
+            color: #43815c;
+        }
+
+        .learning-empty {
+            grid-column: 1 / -1;
+            padding: 35px 20px;
+            border: 1px dashed #ccd8ce;
+            border-radius: 15px;
+            text-align: center;
+            color: #68716a;
+            line-height: 1.8;
+        }
+
+        .learning-tip-section {
+            padding: 0 0 70px;
+        }
+
+        .learning-tip {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 28px;
+            border: 1px solid #e1e9e1;
+            border-radius: 18px;
+            background: #f5f8f3;
+        }
+
+        .learning-tip-icon {
+            display: grid;
+            place-items: center;
+            flex-shrink: 0;
+            width: 55px;
+            height: 55px;
+            border-radius: 15px;
+            background: #dfece1;
+            color: #28563c;
+            font-size: 25px;
+        }
+
+        .learning-tip h3 {
+            margin: 0 0 8px;
+            color: #183528;
+        }
+
+        .learning-tip p {
+            margin: 0;
+            color: #626c65;
+            line-height: 1.8;
+        }
+
+        .learning-bottom-cta {
+            padding: 50px 25px;
+            border-radius: 22px;
+            background: #173a2b;
+            color: #ffffff;
+            text-align: center;
+        }
+
+        .learning-bottom-cta h2 {
+            margin: 0 0 13px;
+            font-size: clamp(25px, 4vw, 35px);
+            line-height: 1.35;
+        }
+
+        .learning-bottom-cta p {
+            max-width: 590px;
+            margin: 0 auto 23px;
+            color: #d7e4da;
+            line-height: 1.8;
+        }
+
+        .learning-bottom-cta .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 13px 19px;
+            border-radius: 9px;
+            background: #ffffff;
+            color: #214d38;
+            font-weight: 800;
+            text-decoration: none;
+        }
+
+        .learning-footer {
+            padding: 25px 0;
+            color: #68716a;
+            font-size: 13px;
+            text-align: center;
+        }
+
+        .learning-footer a {
+            color: #28563c;
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        @media (max-width: 900px) {
+            .learning-hero-grid {
+                grid-template-columns: 1fr;
+                gap: 35px;
+            }
+
+            .learning-hero-art {
+                max-width: 560px;
+            }
+
+            .learning-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        @media (max-width: 560px) {
+            .learning-hero {
+                padding: 48px 0;
+            }
+
+            .learning-hero h1 {
+                letter-spacing: -1.2px;
+            }
+
+            .learning-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .learning-section {
+                padding: 48px 0;
+            }
+
+            .learning-search {
+                flex-direction: column;
+            }
+
+            .learning-search button {
+                width: 100%;
+            }
+
+            .learning-tip {
+                align-items: flex-start;
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVIGATION -->
+    <header class="header">
+        <nav class="navbar container">
+
+            <a href="index.html" class="logo">
+                <span class="logo-icon">S</span>
+                <span>SKILL<span class="logo-highlight">BRIDGE</span></span>
+            </a>
+
+            <button
+                class="menu-toggle"
+                id="menuToggle"
+                aria-label="Open navigation menu"
+                aria-expanded="false"
+                aria-controls="navLinks"
+            >
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <div class="nav-links" id="navLinks">
+                <a href="index.html#opportunities">Opportunities</a>
+                <a href="index.html#categories">Categories</a>
+                <a href="scholarships.html">Scholarships</a>
+                <a href="learning.html">Learning Resources</a>
+                <a href="saved.html">Saved Opportunities</a>
+            </div>
+
+            <div class="nav-actions">
+                <a href="index.html#opportunities" class="login-link">Explore</a>
+                <a href="index.html#join" class="btn btn-primary nav-cta">Get started ↗</a>
+            </div>
+
+        </nav>
+    </header>
+
+    <main>
+
+        <!-- HERO -->
+        <section class="learning-hero">
+            <div class="container learning-hero-grid">
+
+                <div>
+                    <span class="learning-eyebrow">
+                        <span>✳</span>
+                        YOUR GROWTH STARTS HERE
+                    </span>
+
+                    <h1>
+                        Learn a skill.
+                        <span>Open new doors.</span>
+                    </h1>
+
+                    <p class="learning-hero-description">
+                        You don't have to know everything to get started.
+                        Explore learning resources, build practical skills
+                        and take small steps towards the opportunities you want.
+                    </p>
+
+                    <div class="learning-hero-actions">
+                        <a href="#learningResources" class="btn btn-primary">
+                            Explore resources ↗
+                        </a>
+
+                        <a href="index.html" class="btn btn-secondary">
+                            Back to homepage
+                        </a>
+                    </div>
+                </div>
+
+                <div class="learning-hero-art">
+
+                    <span class="learning-art-label">YOUR LEARNING JOURNEY</span>
+
+                    <h2 class="learning-art-title">
+                        Small steps today.<br>
+                        Bigger possibilities tomorrow.
+                    </h2>
+
+                    <div class="learning-art-item">
+                        <div class="learning-art-icon">⌘</div>
+                        <div>
+                            <h3>Learn something useful</h3>
+                            <p>Start with the skills you want to develop.</p>
+                        </div>
+                    </div>
+
+                    <div class="learning-art-item">
+                        <div class="learning-art-icon">✳</div>
+                        <div>
+                            <h3>Practise as you learn</h3>
+                            <p>Turn new knowledge into practical experience.</p>
+                        </div>
+                    </div>
+
+                    <div class="learning-art-item">
+                        <div class="learning-art-icon">↗</div>
+                        <div>
+                            <h3>Take your next step</h3>
+                            <p>Use your skills to explore new possibilities.</p>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- RESOURCES -->
+        <section class="learning-section" id="learningResources">
+
+            <div class="container">
+
+                <div class="learning-section-heading">
+                    <span class="section-label">EXPLORE & DEVELOP</span>
+
+                    <h2>Find your next learning resource.</h2>
+
+                    <p>
+                        Explore different areas, discover useful learning
+                        platforms and choose a starting point that works for you.
+                    </p>
+                </div>
+
+                <form class="learning-search" id="learningSearchForm">
+
+                    <input
+                        type="search"
+                        id="learningSearchInput"
+                        placeholder="Search web development, writing, design..."
+                        aria-label="Search learning resources"
+                    >
+
+                    <button type="submit">Search resources</button>
+
+                </form>
+
+                <div class="learning-category-filters" id="learningFilters">
+
+                    <button class="learning-filter active" type="button" data-filter="all">
+                        All resources
+                    </button>
+
+                    <button class="learning-filter" type="button" data-filter="technology">
+                        Technology
+                    </button>
+
+                    <button class="learning-filter" type="button" data-filter="design">
+                        Design
+                    </button>
+
+                    <button class="learning-filter" type="button" data-filter="writing">
+                        Writing & Content
+                    </button>
+
+                    <button class="learning-filter" type="button" data-filter="marketing">
+                        Marketing
+                    </button>
+
+                    <button class="learning-filter" type="button" data-filter="career">
+                        Career Skills
+                    </button>
+
+                    <button class="learning-filter" type="button" data-filter="languages">
+                        Languages
+                    </button>
+
+                </div>
+
+                <div class="learning-grid" id="learningGrid">
+
+                    <!-- WEB DEVELOPMENT -->
+                    <article class="learning-card" data-category="technology">
+                        <div class="learning-card-top">
+                            <div class="learning-card-icon">⌘</div>
+                            <span class="learning-card-level">BEGINNER</span>
+                        </div>
+
+                        <span class="learning-card-category">Technology</span>
+
+                        <h3>Learn Web Development</h3>
+
+                        <p>
+                            Start learning how websites are built with HTML,
+                            CSS and JavaScript. Practise by creating your own
+                            small projects.
+                        </p>
+
+                        <a
+                            href="https://developer.mozilla.org/en-US/docs/Learn_web_development"
+                            class="learning-card-link"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            Explore learning guide ↗
+                        </a>
+                    </article>
+
+                    <!-- FREECODECAMP -->
+                    <article class="learning-card" data-category="technology">
+                        <div class="learning-card-top">
+                            <div class="learning-card-icon">⌨</div>
+                            <span class="learning-card-level">BEGINNER</span>
+                        </div>
+
+                        <span class="learning-card-category">Technology</span>
+
+                        <h3>Practise Coding</h3>
+
+                        <p>
+                            Explore coding lessons and hands-on programming
+                            exercises to strengthen your technical skills.
+                        </p>
+
+                        <a
+                            href="https://www.freecodecamp.org/learn/"
+                            class="learning-card-link"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            Start practising ↗
+                        </a>
+                    </article>
+
+                    <!-- UI UX -->
+                    <article class="learning-card" data-category="design">
+                        <div class="learning-card-top">
+                            <div class="learning-card-icon">✳</div>
+                            <span class="learning-card-level">BEGINNER</span>
+                        </div>
+
+                        <span class="learning-card-category">Design</span>
+
+                        <h3>Explore UI/UX Design</h3>
+
+                        <p>
+                            Learn about user experience, interface design,
+                            usability and creating digital products that
+                            are easier to use.
+                        </p>
+
+                        <a
+                            href="https://www.figma.com/resource-library/"
+                            class="learning-card-link"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            Explore design resources ↗
+                        </a>
+                    </article>
+
+                    <!-- CONTENT CREATION -->
+                    <article class="learning-card" data-category="writing">
+                        <div class="learning-card-top">
+                            <div class="learning-card-icon">✎</div>
+                            <span class="learning-card-level">ALL LEVELS</span>
+                        </div>
+
+                        <span class="learning-card-category">Writing & Content</span>
+
+                        <h3>Develop Your Writing</h3>
+
+                        <p>
+                            Explore writing resources to improve clarity,
+                            storytelling, research and the way you communicate
+                            your ideas.
+                        </p>
+
+                        <a
+                            href="https://owl.purdue.edu/"
+                            class="learning-card-link"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            Explore writing guides ↗
+                        </a>
+                    </article>
+
+                    <!-- DIGITAL MARKETING -->
+                    <article class="learning-card" data-category="marketing">
+                        <div class="learning-card-top">
+                            <div class="learning-card-icon">◎</div>
+                            <span class="learning-card-level">BEGINNER</span>
+                        </div>
+
+                        <span class="learning-card-category">Marketing</span>
+
+                        <h3>Learn Digital Marketing</h3>
+
+                        <p>
+                            Build your understanding of online marketing,
+                            content strategy, audience engagement and digital
+                            communication.
+                        </p>
+
+                        <a
+                            href="https://skillshop.withgoogle.com/"
+                            class="learning-card-link"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            Explore Google Skillshop ↗
+                        </a>
+                    </article>
+
+                    <!-- CAREER SKILLS -->
+                    <article class="learning-card" data-category="career">
+                        <div class="learning-card-top">
+                            <div class="learning-card-icon">▤</div>
+                            <span class="learning-card-level">ALL LEVELS</span>
+                        </div>
+
+                        <span class="learning-card-category">Career Skills</span>
+
+                        <h3>Prepare for Opportunities</h3>
+
+                        <p>
+                            Learn how to prepare a CV, identify your strengths,
+                            organise your achievements and prepare for
+                            professional opportunities.
+                        </p>
+
+                        <a
+                            href="https://www.linkedin.com/learning/"
+                            class="learning-card-link"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            Explore career courses ↗
+                        </a>
+                    </article>
+
+                    <!-- LANGUAGES -->
+                    <article class="learning-card" data-category="languages">
+                        <div class="learning-card-top">
+                            <div class="learning-card-icon">文</div>
+                            <span class="learning-card-level">ALL LEVELS</span>
+                        </div>
+
+                        <span class="learning-card-category">Languages</span>
+
+                        <h3>Develop Language Skills</h3>
+
+                        <p>
+                            Explore free French lessons, listening activities
+                            and other resources to practise a language at
+                            your own pace.
+                        </p>
+
+                        <a
+                            href="https://apprendre.tv5monde.com/"
+                            class="learning-card-link"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            Learn with TV5MONDE ↗
+                        </a>
+                    </article>
+
+                    <!-- OPEN LEARNING -->
+                    <article class="learning-card" data-category="technology">
+                        <div class="learning-card-top">
+                            <div class="learning-card-icon">◇</div>
+                            <span class="learning-card-level">SELF-PACED</span>
+                        </div>
+
+                        <span class="learning-card-category">Technology</span>
+
+                        <h3>Explore Open Learning</h3>
+
+                        <p>
+                            Discover free educational materials from universities
+                            and explore subjects that support your personal
+                            and professional development.
+                        </p>
+
+                        <a
+                            href="https://www.open.edu/openlearn/"
+                            class="learning-card-link"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            Browse OpenLearn ↗
+                        </a>
+                    </article>
+
+                    <!-- CREATIVE SKILLS -->
+                    <article class="learning-card" data-category="writing">
+                        <div class="learning-card-top">
+                            <div class="learning-card-icon">✦</div>
+                            <span class="learning-card-level">ALL LEVELS</span>
+                        </div>
+
+                        <span class="learning-card-category">Writing & Content</span>
+
+                        <h3>Explore Creative Learning</h3>
+
+                        <p>
+                            Discover educational resources for creative thinking,
+                            communication, problem-solving and developing
+                            new ideas.
+                        </p>
+
+                        <a
+                            href="https://www.khanacademy.org/"
+                            class="learning-card-link"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            Explore learning materials ↗
+                        </a>
+                    </article>
+
+                </div>
+
+                <p
+                    id="learningResultsMessage"
+                    aria-live="polite"
+                    style="margin-top: 22px; color: #68716a; font-size: 14px;"
+                ></p>
+
+            </div>
+        </section>
+
+        <!-- LEARNING TIP -->
+        <section class="learning-tip-section">
+            <div class="container">
+
+                <div class="learning-tip">
+
+                    <div class="learning-tip-icon">✳</div>
+
+                    <div>
+                        <h3>A little progress still counts.</h3>
+
+                        <p>
+                            Choose one skill, practise regularly and create
+                            something with what you learn. You don't have to
+                            master everything at once.
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- CALL TO ACTION -->
+        <section class="learning-section">
+            <div class="container">
+
+                <div class="learning-bottom-cta">
+
+                    <h2>Ready to take your next step?</h2>
+
+                    <p>
+                        Explore opportunities that can help you put your
+                        developing skills into practice.
+                    </p>
+
+                    <a href="index.html#opportunities" class="btn">
+                        Find opportunities ↗
+                    </a>
+
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="learning-footer">
+        <div class="container">
+            <p>
+                © <span id="learningYear"></span> SKILLBRIDGE.
+                Built for what comes next.
+            </p>
+
+            <a href="index.html">Return to homepage ↑</a>
+        </div>
+    </footer>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const searchForm = document.getElementById("learningSearchForm");
+    const searchInput = document.getElementById("learningSearchInput");
+    const learningGrid = document.getElementById("learningGrid");
+    const resultsMessage = document.getElementById("learningResultsMessage");
+    const filterButtons = document.querySelectorAll(".learning-filter");
+
+    let activeCategory = "all";
+
+    if (!learningGrid || !searchInput || !resultsMessage) {
+        console.error(
+            "SKILLBRIDGE: A required learning page element is missing."
+        );
+        return;
+    }
+
+    function filterResources() {
+        const keyword = searchInput.value.trim().toLowerCase();
+        const cards = learningGrid.querySelectorAll(".learning-card");
+
+        let visibleCount = 0;
+
+        cards.forEach(function (card) {
+            const category = (card.dataset.category || "").toLowerCase();
+            const cardText = card.textContent.toLowerCase();
+
+            const matchesCategory =
+                activeCategory === "all" ||
+                category === activeCategory;
+
+            const matchesSearch = cardText.includes(keyword);
+            const shouldShow = matchesCategory && matchesSearch;
+
+            card.hidden = !shouldShow;
+
+            if (shouldShow) {
+                visibleCount++;
+            }
+        });
+
+        let emptyMessage = learningGrid.querySelector(".learning-empty");
+
+        if (visibleCount === 0) {
+            if (!emptyMessage) {
+                emptyMessage = document.createElement("div");
+                emptyMessage.className = "learning-empty";
+                learningGrid.appendChild(emptyMessage);
+            }
+
+            emptyMessage.textContent =
+                "No resources found. Try another keyword or category.";
+        } else if (emptyMessage) {
+            emptyMessage.remove();
+        }
+
+        resultsMessage.textContent =
+            visibleCount === 1
+                ? "Showing 1 learning resource."
+                : "Showing " + visibleCount + " learning resources.";
+    }
+
+    if (searchForm) {
+        searchForm.addEventListener("submit", function (event) {
+            event.preventDefault();
+            filterResources();
+        });
+    }
+
+    searchInput.addEventListener("input", filterResources);
+
+    filterButtons.forEach(function (button) {
+        button.addEventListener("click", function () {
+            activeCategory = (
+                button.dataset.filter || "all"
+            ).toLowerCase();
+
+            filterButtons.forEach(function (filterButton) {
+                const isActive = filterButton === button;
+
+                filterButton.classList.toggle("active", isActive);
+                filterButton.setAttribute(
+                    "aria-pressed",
+                    String(isActive)
+                );
+            });
+
+            filterResources();
+        });
+    });
+
+    const menuToggle = document.getElementById("menuToggle");
+    const navLinks = document.getElementById("navLinks");
+
+    if (menuToggle && navLinks) {
+        menuToggle.addEventListener("click", function () {
+            const isOpen = navLinks.classList.toggle("active");
+
+            menuToggle.setAttribute("aria-expanded", String(isOpen));
+            menuToggle.setAttribute(
+                "aria-label",
+                isOpen ? "Close navigation menu" : "Open navigation menu"
+            );
+        });
+
+        navLinks.querySelectorAll("a").forEach(function (link) {
+            link.addEventListener("click", function () {
+                navLinks.classList.remove("active");
+                menuToggle.setAttribute("aria-expanded", "false");
+                menuToggle.setAttribute(
+                    "aria-label",
+                    "Open navigation menu"
+                );
+            });
+        });
+    }
+
+    const yearElement = document.getElementById("learningYear");
+
+    if (yearElement) {
+        yearElement.textContent = new Date().getFullYear();
+    }
+
+    filterButtons.forEach(function (button) {
+        button.setAttribute(
+            "aria-pressed",
+            String((button.dataset.filter || "all") === "all")
+        );
+    });
+
+    filterResources();
+});
+</script>
+
+</body>
+</html>

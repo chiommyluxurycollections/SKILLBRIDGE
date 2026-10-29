@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#142D24">
+
+    <meta name="description" content="Discover scholarship opportunities on SKILLBRIDGE.">
+
+    <title>Scholarships | SKILLBRIDGE</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        .inner-header {
+            background: #fff;
+            padding: 18px 6%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+            border-bottom: 1px solid #e8ece8;
+        }
+
+        .inner-logo {
+            font-size: 1.45rem;
+            font-weight: 800;
+            color: #246B4A;
+            text-decoration: none;
+        }
+
+        .inner-nav {
+            display: flex;
+            gap: 22px;
+            flex-wrap: wrap;
+        }
+
+        .inner-nav a {
+            text-decoration: none;
+            color: #142D24;
+            font-weight: 600;
+        }
+
+        .scholarship-hero {
+            padding: 70px 20px;
+            text-align: center;
+            background: #eaf3eb;
+        }
+
+        .scholarship-hero .eyebrow {
+            display: inline-block;
+            color: #246B4A;
+            font-weight: 800;
+            font-size: 0.85rem;
+            letter-spacing: 1.5px;
+            margin-bottom: 18px;
+        }
+
+        .scholarship-hero h1 {
+            max-width: 760px;
+            margin: 0 auto 18px;
+            color: #142D24;
+            font-size: clamp(2rem, 6vw, 3.5rem);
+            line-height: 1.15;
+        }
+
+        .scholarship-hero p {
+            max-width: 650px;
+            margin: 0 auto;
+            color: #526259;
+            line-height: 1.8;
+        }
+
+        .scholarship-container {
+            max-width: 1100px;
+            margin: 45px auto;
+            padding: 0 20px;
+        }
+
+        .scholarship-container h2 {
+            color: #142D24;
+            margin-bottom: 12px;
+        }
+
+        .intro-text {
+            color: #65716a;
+            line-height: 1.7;
+            margin-bottom: 25px;
+        }
+
+        .scholarship-tools {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-bottom: 25px;
+        }
+
+        .scholarship-tools input,
+        .scholarship-tools select {
+            flex: 1;
+            min-width: 180px;
+            padding: 13px;
+            border: 1px solid #dce4dc;
+            border-radius: 9px;
+            background: #fff;
+            font: inherit;
+        }
+
+        .scholarship-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 22px;
+        }
+
+        .scholarship-card {
+            background: #fff;
+            border: 1px solid #e5ebe5;
+            border-radius: 16px;
+            padding: 24px;
+            box-shadow: 0 8px 24px rgba(20, 45, 36, 0.04);
+        }
+
+        .scholarship-tag {
+            display: inline-block;
+            background: #e8f4eb;
+            color: #246B4A;
+            border-radius: 30px;
+            padding: 7px 11px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .scholarship-card h3 {
+            color: #142D24;
+            margin-bottom: 12px;
+            line-height: 1.4;
+        }
+
+        .scholarship-card p {
+            color: #65716a;
+            line-height: 1.7;
+            margin-bottom: 12px;
+        }
+
+        .scholarship-card a {
+            display: inline-block;
+            margin-top: 8px;
+            background: #246B4A;
+            color: #fff;
+            padding: 11px 15px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+        }
+
+        .scholarship-notice {
+            margin-top: 35px;
+            padding: 18px;
+            background: #fff8e8;
+            color: #775719;
+            border-radius: 12px;
+            line-height: 1.7;
+            font-size: 0.9rem;
+        }
+
+        .inner-footer {
+            text-align: center;
+            padding: 25px 15px;
+            color: #65716a;
+            border-top: 1px solid #e8ece8;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 600px) {
+            .inner-header {
+                padding: 16px 5%;
+                align-items: flex-start;
+                flex-direction: column;
+            }
+
+            .inner-nav {
+                gap: 15px;
+                font-size: 0.9rem;
+            }
+
+            .scholarship-hero {
+                padding: 50px 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="inner-header">
+        <a href="index.html" class="inner-logo">SKILLBRIDGE.</a>
+
+        <nav class="inner-nav">
+            <a href="index.html">Home</a>
+            <a href="scholarships.html">Scholarships</a>
+            <a href="saved.html">Saved</a>
+        </nav>
+    </header>
+
+    <section class="scholarship-hero">
+        <span class="eyebrow">YOUR NEXT CHAPTER STARTS HERE</span>
+
+        <h1>Find opportunities that can take your education further.</h1>
+
+        <p>
+            Explore scholarship opportunities, discover potential funding options
+            and take the next step towards your academic goals.
+        </p>
+    </section>
+
+    <main class="scholarship-container">
+        <h2>Explore scholarships</h2>
+
+        <p class="intro-text">
+            Search listings by name or location. Always confirm eligibility,
+            deadlines and application requirements with the official provider.
+        </p>
+
+        <div class="scholarship-tools">
+            <input
+                type="search"
+                id="scholarshipSearch"
+                placeholder="Search scholarships..."
+                aria-label="Search scholarships"
+            >
+
+            <select id="scholarshipLocation" aria-label="Filter scholarships by location">
+                <option value="">All locations</option>
+                <option value="nigeria">Nigeria</option>
+                <option value="international">International</option>
+                <option value="online">Online</option>
+            </select>
+        </div>
+
+        <div id="scholarshipGrid" class="scholarship-grid"></div>
+
+        <div class="scholarship-notice">
+            <strong>Important:</strong> These are demonstration listings for the
+            SKILLBRIDGE prototype, not verified live scholarships. Before applying,
+            check the provider's official website. Never pay an unverified person
+            who promises to secure a scholarship for you.
+        </div>
+    </main>
+
+    <footer class="inner-footer">
+        © <span id="currentYear"></span> SKILLBRIDGE.
+        Your Skills. Your Opportunities. Your Future.
+    </footer>
+
+    <script>
+        document.getElementById("currentYear").textContent =
+            new Date().getFullYear();
+
+        const demoScholarships = [
+            {
+                id: "demo-scholarship-1",
+                title: "Undergraduate Scholarship Search",
+                organisation: "Scholarship Research Guide",
+                location: "International",
+                description: "A demonstration listing to help students practise researching undergraduate funding opportunities.",
+                link: ""
+            },
+            {
+                id: "demo-scholarship-2",
+                title: "Nigerian Student Funding Search",
+                organisation: "Student Funding Guide",
+                location: "Nigeria",
+                description: "A starting point for researching educational grants and scholarship opportunities available to Nigerian students.",
+                link: ""
+            },
+            {
+                id: "demo-scholarship-3",
+                title: "Online Learning Support",
+                organisation: "Learning Opportunities Guide",
+                location: "Online",
+                description: "Explore possible learning support and education funding options connected to online programmes.",
+                link: ""
+            }
+        ];
+
+        const grid = document.getElementById("scholarshipGrid");
+        const search = document.getElementById("scholarshipSearch");
+        const locationFilter = document.getElementById("scholarshipLocation");
+
+        function escapeHTML(value) {
+            return String(value).replace(/[&<>"']/g, character => ({
+                "&": "&amp;",
+                "<": "&lt;",
+                ">": "&gt;",
+                '"': "&quot;",
+                "'": "&#39;"
+            })[character]);
+        }
+
+        function renderScholarships() {
+            const query = search.value.trim().toLowerCase();
+            const location = locationFilter.value.toLowerCase();
+
+            const filtered = demoScholarships.filter(item => {
+                const matchesQuery = (
+                    item.title + " " +
+                    item.organisation + " " +
+                    item.description
+                ).toLowerCase().includes(query);
+
+                const matchesLocation = !location ||
+                    item.location.toLowerCase() === location;
+
+                return matchesQuery && matchesLocation;
+            });
+
+            if (filtered.length === 0) {
+                grid.innerHTML = `
+                    <p>No matching demonstration listings were found.
+                    Try another search.</p>
+                `;
+                return;
+            }
+
+            grid.innerHTML = filtered.map(item => `
+                <article class="scholarship-card">
+                    <span class="scholarship-tag">
+                        ${escapeHTML(item.location)}
+                    </span>
+
+                    <h3>${escapeHTML(item.title)}</h3>
+
+                    <p><strong>Guide:</strong>
+                        ${escapeHTML(item.organisation)}
+                    </p>
+
+                    <p>${escapeHTML(item.description)}</p>
+
+                    <a href="index.html">Explore SKILLBRIDGE</a>
+                </article>
+            `).join("");
+        }
+
+        search.addEventListener("input", renderScholarships);
+        locationFilter.addEventListener("change", renderScholarships);
+
+        renderScholarships();
+    </script>
+
+</body>
+</html>

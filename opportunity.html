@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#142D24">
+
+    <title>Opportunity Details | SKILLBRIDGE</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        .inner-header {
+            background: #fff;
+            padding: 18px 6%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+            border-bottom: 1px solid #e8ece8;
+        }
+
+        .inner-logo {
+            font-size: 1.45rem;
+            font-weight: 800;
+            color: #246B4A;
+            text-decoration: none;
+        }
+
+        .inner-nav {
+            display: flex;
+            gap: 22px;
+            flex-wrap: wrap;
+        }
+
+        .inner-nav a {
+            text-decoration: none;
+            color: #142D24;
+            font-weight: 600;
+        }
+
+        .detail-wrapper {
+            max-width: 900px;
+            margin: 55px auto;
+            padding: 0 20px;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 25px;
+            color: #246B4A;
+            text-decoration: none;
+            font-weight: 700;
+        }
+
+        .detail-card {
+            background: #fff;
+            border: 1px solid #e6ebe6;
+            border-radius: 20px;
+            padding: 35px;
+            box-shadow: 0 12px 35px rgba(20, 45, 36, 0.06);
+        }
+
+        .detail-label {
+            display: inline-block;
+            background: #e8f4eb;
+            color: #246B4A;
+            padding: 8px 13px;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            margin-bottom: 18px;
+        }
+
+        .detail-card h1 {
+            font-size: clamp(1.8rem, 5vw, 2.7rem);
+            line-height: 1.2;
+            margin-bottom: 15px;
+            color: #142D24;
+        }
+
+        .detail-meta {
+            color: #65716a;
+            margin-bottom: 25px;
+            line-height: 1.9;
+        }
+
+        .detail-section {
+            margin-top: 30px;
+        }
+
+        .detail-section h2 {
+            font-size: 1.2rem;
+            margin-bottom: 12px;
+            color: #142D24;
+        }
+
+        .detail-section p {
+            line-height: 1.8;
+            color: #505b53;
+        }
+
+        .detail-actions {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        .detail-button {
+            display: inline-block;
+            padding: 13px 20px;
+            border-radius: 9px;
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.95rem;
+        }
+
+        .primary-button {
+            background: #246B4A;
+            color: #fff;
+        }
+
+        .secondary-button {
+            background: #e8f4eb;
+            color: #246B4A;
+        }
+
+        .detail-notice {
+            background: #fff8e8;
+            color: #775719;
+            padding: 14px;
+            border-radius: 10px;
+            line-height: 1.6;
+            margin-top: 25px;
+            font-size: 0.9rem;
+        }
+
+        .inner-footer {
+            text-align: center;
+            padding: 25px 15px;
+            color: #65716a;
+            border-top: 1px solid #e8ece8;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 600px) {
+            .inner-header {
+                padding: 16px 5%;
+                align-items: flex-start;
+                flex-direction: column;
+            }
+
+            .inner-nav {
+                gap: 15px;
+                font-size: 0.9rem;
+            }
+
+            .detail-wrapper {
+                margin: 30px auto;
+            }
+
+            .detail-card {
+                padding: 23px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="inner-header">
+        <a href="index.html" class="inner-logo">SKILLBRIDGE.</a>
+
+        <nav class="inner-nav">
+            <a href="index.html">Home</a>
+            <a href="scholarships.html">Scholarships</a>
+            <a href="saved.html">Saved</a>
+        </nav>
+    </header>
+
+    <main class="detail-wrapper">
+        <a href="index.html" class="back-link">← Back to opportunities</a>
+
+        <article class="detail-card">
+            <span class="detail-label" id="opportunityCategory">
+                Opportunity
+            </span>
+
+            <h1 id="opportunityTitle">Loading opportunity...</h1>
+
+            <div class="detail-meta">
+                <div><strong>Organisation:</strong> <span id="opportunityOrganisation">—</span></div>
+                <div><strong>Location:</strong> <span id="opportunityLocation">—</span></div>
+                <div><strong>Type:</strong> <span id="opportunityType">—</span></div>
+                <div><strong>Deadline:</strong> <span id="opportunityDeadline">—</span></div>
+            </div>
+
+            <section class="detail-section">
+                <h2>About this opportunity</h2>
+                <p id="opportunityDescription">
+                    Opportunity information will appear here.
+                </p>
+            </section>
+
+            <section class="detail-section">
+                <h2>Who should consider applying?</h2>
+                <p id="opportunityAudience">
+                    Check the eligibility requirements before applying.
+                </p>
+            </section>
+
+            <div class="detail-actions">
+                <a href="#" id="applyButton"
+                   class="detail-button primary-button"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    Visit application page ↗
+                </a>
+
+                <button id="saveOpportunity"
+                        class="detail-button secondary-button">
+                    ♡ Save opportunity
+                </button>
+            </div>
+
+            <div class="detail-notice">
+                <strong>Stay safe:</strong> Verify the organisation and application
+                requirements before sharing personal information or paying any fee.
+                SKILLBRIDGE demo listings have not been independently verified.
+            </div>
+        </article>
+    </main>
+
+    <footer class="inner-footer">
+        © <span id="currentYear"></span> SKILLBRIDGE.
+        Your Skills. Your Opportunities. Your Future.
+    </footer>
+
+    <script>
+        document.getElementById("currentYear").textContent =
+            new Date().getFullYear();
+
+        const params = new URLSearchParams(window.location.search);
+        const opportunityId = params.get("id");
+
+        /*
+          This page reads opportunities saved by the main website.
+          The homepage integration will be added in the next step.
+        */
+
+        let opportunities = [];
+
+        try {
+            opportunities = JSON.parse(
+                localStorage.getItem("skillbridgeOpportunities")
+            ) || [];
+        } catch (error) {
+            opportunities = [];
+        }
+
+        const opportunity = opportunities.find(item =>
+            String(item.id) === String(opportunityId)
+        );
+
+        const savedKey = "skillbridge-saved";
+        let saved = [];
+
+        let saved = [];
+
+try {
+    const stored = JSON.parse(localStorage.getItem(savedKey)) || [];
+
+    const savedIds = Array.isArray(stored) ? stored : [];
+
+    const allOpportunities = JSON.parse(
+        localStorage.getItem("skillbridgeOpportunities")
+    ) || [];
+
+    saved = savedIds
+        .map(id => allOpportunities.find(item => item.id === Number(id)))
+        .filter(Boolean);
+} catch (error) {
+    saved = [];
+}
+
+        if (opportunity) {
+            document.title = opportunity.title + " | SKILLBRIDGE";
+
+            document.getElementById("opportunityTitle").textContent =
+                opportunity.title || "Opportunity";
+
+            document.getElementById("opportunityOrganisation").textContent =
+                opportunity.organisation || opportunity.company || "Not specified";
+
+            document.getElementById("opportunityLocation").textContent =
+                opportunity.location || "Not specified";
+
+            document.getElementById("opportunityType").textContent =
+                opportunity.type || opportunity.category || "Opportunity";
+
+            document.getElementById("opportunityDeadline").textContent =
+                opportunity.deadline || "Check application page";
+
+            document.getElementById("opportunityCategory").textContent =
+                opportunity.category || "Opportunity";
+
+            document.getElementById("opportunityDescription").textContent =
+                opportunity.description || "Please visit the application page for more information.";
+
+            document.getElementById("opportunityAudience").textContent =
+                opportunity.audience || "Review the eligibility criteria on the official application page.";
+
+            const applyButton = document.getElementById("applyButton");
+
+            if (opportunity.link) {
+                applyButton.href = opportunity.link;
+            } else {
+                applyButton.href = "#";
+                applyButton.addEventListener("click", function(event) {
+                    event.preventDefault();
+                    alert("An application link has not been added to this listing yet.");
+                });
+            }
+
+            const saveButton = document.getElementById("saveOpportunity");
+
+            function updateSaveButton() {
+                const isSaved = saved.some(item =>
+                    String(item.id) === String(opportunity.id)
+                );
+
+                saveButton.textContent = isSaved
+                    ? "♥ Saved"
+                    : "♡ Save opportunity";
+            }
+
+            updateSaveButton();
+
+            saveButton.addEventListener("click", function() {
+                const index = saved.findIndex(item =>
+                    String(item.id) === String(opportunity.id)
+                );
+
+                if (index >= 0) {
+                    saved.splice(index, 1);
+                } else {
+                    saved.push(opportunity);
+                }
+
+                localStorage.setItem(
+    savedKey,
+    JSON.stringify(saved.map(item => Number(item.id)))
+);
+                updateSaveButton();
+            });
+
+        } else {
+            document.getElementById("opportunityTitle").textContent =
+                "Opportunity not found";
+
+            document.getElementById("opportunityDescription").textContent =
+                "We couldn't find this opportunity. Return to the homepage to explore available listings.";
+
+            document.getElementById("opportunityAudience").textContent =
+                "Choose an opportunity from the main listing page.";
+
+            document.getElementById("applyButton").style.display = "none";
+            document.getElementById("saveOpportunity").style.display = "none";
+        }
+    </script>
+
+</body>
+</html>
